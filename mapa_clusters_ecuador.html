@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6c52ed035cc5c77777e7689381a6638a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+     top: 10px; left: 10px; width: 300px; 
+     height: auto; z-index: 9999; 
+     font-size: 14px; 
+     background-color: white; 
+     padding: 10px;">
+    <strong>Información de Clústeres:</strong><br>
+    <table style="width: 100%;">
+        <tr>
+            <th>Clúster</th>
+            <th>Fallecidos</th>
+            <th>Lesionados</th>
+        </tr>
+
+        <tr>
+            <td>0</td>
+            <td>1967</td>
+            <td>20786</td>
+        </tr>
+    
+        <tr>
+            <td>1</td>
+            <td>1834</td>
+            <td>38729</td>
+        </tr>
+    
+    </table>
+</div>
+    
+            <div class="folium-map" id="map_6c52ed035cc5c77777e7689381a6638a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6c52ed035cc5c77777e7689381a6638a = L.map(
+                "map_6c52ed035cc5c77777e7689381a6638a",
+                {
+                    center: [-1.4721699046945682, -79.32364411259167],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_737cf85ab4ffadba31867273939ca691 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_737cf85ab4ffadba31867273939ca691.addTo(map_6c52ed035cc5c77777e7689381a6638a);
+        
+    
+            var polygon_1efef79866d2187070ba828f1520a1f5 = L.polygon(
+                [[-0.552601, -78.587188], [-0.509447, -78.587751], [-0.283086, -78.584569], [-0.279014, -78.584489], [-0.073708, -78.529832], [0.011795, -78.469186], [0.019382, -78.439192], [-0.039488, -78.333456], [-0.053642, -78.327161], [-0.144058, -78.314865], [-0.163571, -78.312303], [-0.242621, -78.322863], [-0.258156, -78.331945], [-0.552601, -78.587188]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_6c52ed035cc5c77777e7689381a6638a);
+        
+    
+        var popup_99f511b7cc3715abfc4674a9ee4a25c8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_06c0f298dccc9ea555e8119963f2ca44 = $(`<div id="html_06c0f298dccc9ea555e8119963f2ca44" style="width: 100.0%; height: 100.0%;"><strong>Clúster: 0</strong><br>Fallecidos: 1967<br>Lesionados: 20786</div>`)[0];
+                popup_99f511b7cc3715abfc4674a9ee4a25c8.setContent(html_06c0f298dccc9ea555e8119963f2ca44);
+            
+        
+
+        polygon_1efef79866d2187070ba828f1520a1f5.bindPopup(popup_99f511b7cc3715abfc4674a9ee4a25c8)
+        ;
+
+        
+    
+    
+            var marker_d14c1bb321daf8f558a683e4c6f85660 = L.marker(
+                [-0.22715081911292617, -78.4614133987255],
+                {
+}
+            ).addTo(map_6c52ed035cc5c77777e7689381a6638a);
+        
+    
+            var div_icon_3bbb50b9c4d93de855de5120e6f8fd1f = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black;\"\u003e\u003cstrong\u003e0\u003c/strong\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_d14c1bb321daf8f558a683e4c6f85660.setIcon(div_icon_3bbb50b9c4d93de855de5120e6f8fd1f);
+            
+    
+            var polygon_a963dc000faf4350d2e877cdfe441fa1 = L.polygon(
+                [[-2.285223, -79.887323], [-2.281701, -79.898421], [-2.278065, -79.906661], [-2.196944, -80.056944], [-1.898639, -80.033278], [-1.697139, -79.998083], [-1.680424, -79.988575], [-1.680401, -79.988501], [-1.706777, -79.971527], [-2.116611, -79.731411], [-2.118055, -79.732027], [-2.214107, -79.794821], [-2.282187, -79.874139], [-2.284963, -79.877931], [-2.285223, -79.887323]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_6c52ed035cc5c77777e7689381a6638a);
+        
+    
+        var popup_d4e86369f866b63aec97eab58d8e5cfa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_188d508950dc975daab039bf0b9470cc = $(`<div id="html_188d508950dc975daab039bf0b9470cc" style="width: 100.0%; height: 100.0%;"><strong>Clúster: 1</strong><br>Fallecidos: 1834<br>Lesionados: 38729</div>`)[0];
+                popup_d4e86369f866b63aec97eab58d8e5cfa.setContent(html_188d508950dc975daab039bf0b9470cc);
+            
+        
+
+        polygon_a963dc000faf4350d2e877cdfe441fa1.bindPopup(popup_d4e86369f866b63aec97eab58d8e5cfa)
+        ;
+
+        
+    
+    
+            var marker_5432e84bea6586eb406d621ed4f4f7ef = L.marker(
+                [-2.037689949113285, -79.9206277262313],
+                {
+}
+            ).addTo(map_6c52ed035cc5c77777e7689381a6638a);
+        
+    
+            var div_icon_f9b9923d05f51e3e7aa7d5a9c7978ca1 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black;\"\u003e\u003cstrong\u003e1\u003c/strong\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_5432e84bea6586eb406d621ed4f4f7ef.setIcon(div_icon_f9b9923d05f51e3e7aa7d5a9c7978ca1);
+            
+</script>
+</html>
