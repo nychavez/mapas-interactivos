@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_556f2e3fdd2863c8ced279fbc6f07500 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+     top: 10px; left: 10px; width: 300px; 
+     height: auto; z-index: 9999; 
+     font-size: 14px; 
+     background-color: white; 
+     padding: 10px;">
+    <strong>Información de Clústeres:</strong><br>
+    <table style="width: 100%;">
+        <tr>
+            <th>Clúster</th>
+            <th>Fallecidos</th>
+            <th>Lesionados</th>
+        </tr>
+
+        <tr>
+            <td>0</td>
+            <td>2</td>
+            <td>169</td>
+        </tr>
+    
+        <tr>
+            <td>1</td>
+            <td>63</td>
+            <td>2896</td>
+        </tr>
+    
+        <tr>
+            <td>2</td>
+            <td>3</td>
+            <td>107</td>
+        </tr>
+    
+        <tr>
+            <td>3</td>
+            <td>9</td>
+            <td>209</td>
+        </tr>
+    
+        <tr>
+            <td>4</td>
+            <td>3</td>
+            <td>150</td>
+        </tr>
+    
+        <tr>
+            <td>5</td>
+            <td>34</td>
+            <td>451</td>
+        </tr>
+    
+        <tr>
+            <td>6</td>
+            <td>3</td>
+            <td>105</td>
+        </tr>
+    
+    </table>
+</div>
+    
+            <div class="folium-map" id="map_556f2e3fdd2863c8ced279fbc6f07500" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_556f2e3fdd2863c8ced279fbc6f07500 = L.map(
+                "map_556f2e3fdd2863c8ced279fbc6f07500",
+                {
+                    center: [-1.4721699046945682, -79.32364411259167],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e7f7f60e6595fa4a0251a8bf663834f3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e7f7f60e6595fa4a0251a8bf663834f3.addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+            var polygon_c6754fdd2b22f3755a568b298cb7afef = L.polygon(
+                [[-2.207759, -79.935471], [-2.205671, -79.936351], [-2.205493, -79.936356], [-2.203952, -79.935993], [-2.202105, -79.934622], [-2.202108, -79.933943], [-2.202344, -79.933808], [-2.203368, -79.933505], [-2.205553, -79.933334], [-2.206383, -79.933556], [-2.207759, -79.935471]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+        var popup_938e2030af07823ba478208bf71350c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5834828b47cdbc107999559a577d97a8 = $(`<div id="html_5834828b47cdbc107999559a577d97a8" style="width: 100.0%; height: 100.0%;"><strong>Clúster: 0</strong><br>Fallecidos: 2<br>Lesionados: 169</div>`)[0];
+                popup_938e2030af07823ba478208bf71350c1.setContent(html_5834828b47cdbc107999559a577d97a8);
+            
+        
+
+        polygon_c6754fdd2b22f3755a568b298cb7afef.bindPopup(popup_938e2030af07823ba478208bf71350c1)
+        ;
+
+        
+    
+    
+            var marker_26a59d8573149d811379ad94f1f8b560 = L.marker(
+                [-2.2048949010561953, -79.93475918204942],
+                {
+}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+            var div_icon_cfebee11a3021c7b7cfc9d17f5d8e868 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black;\"\u003e\u003cstrong\u003e0\u003c/strong\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_26a59d8573149d811379ad94f1f8b560.setIcon(div_icon_cfebee11a3021c7b7cfc9d17f5d8e868);
+            
+    
+            var polygon_1dfee553c512d806727a5285d1fd2228 = L.polygon(
+                [[-2.209171, -79.896883], [-2.209054, -79.897589], [-2.208779, -79.898971], [-2.207421, -79.903316], [-2.205996, -79.903483], [-2.190924, -79.898945], [-2.186611, -79.897603], [-2.185364, -79.897022], [-2.183083, -79.895682], [-2.179638, -79.892055], [-2.178842, -79.889471], [-2.180241, -79.888069], [-2.183443, -79.887011], [-2.186849, -79.886686], [-2.194898, -79.887951], [-2.206191, -79.892896], [-2.209171, -79.896881], [-2.209171, -79.896883]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+        var popup_cc173e6fc1f7373f36cbbd91934b0098 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_257aa04cc60159006254e85855e1cb2e = $(`<div id="html_257aa04cc60159006254e85855e1cb2e" style="width: 100.0%; height: 100.0%;"><strong>Clúster: 1</strong><br>Fallecidos: 63<br>Lesionados: 2896</div>`)[0];
+                popup_cc173e6fc1f7373f36cbbd91934b0098.setContent(html_257aa04cc60159006254e85855e1cb2e);
+            
+        
+
+        polygon_1dfee553c512d806727a5285d1fd2228.bindPopup(popup_cc173e6fc1f7373f36cbbd91934b0098)
+        ;
+
+        
+    
+    
+            var marker_e72943b7629aa31ca34630645bcbec88 = L.marker(
+                [-2.1946445815457585, -79.89441668530618],
+                {
+}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+            var div_icon_ca7ff27e787782998e103d34c1d96332 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black;\"\u003e\u003cstrong\u003e1\u003c/strong\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_e72943b7629aa31ca34630645bcbec88.setIcon(div_icon_ca7ff27e787782998e103d34c1d96332);
+            
+    
+            var polygon_bec9636d1e9410faab50ff59430ce6f8 = L.polygon(
+                [[-2.112048, -79.907761], [-2.111402, -79.908414], [-2.110061, -79.909139], [-2.107371, -79.909127], [-2.107177, -79.909056], [-2.107211, -79.908733], [-2.107235, -79.908703], [-2.109334, -79.906937], [-2.111878, -79.907529], [-2.112048, -79.907761]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+        var popup_6b24c95a254d56201fc0d428e3798cc2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eca37b49a0ff3c698abafc7d4e67ca5f = $(`<div id="html_eca37b49a0ff3c698abafc7d4e67ca5f" style="width: 100.0%; height: 100.0%;"><strong>Clúster: 2</strong><br>Fallecidos: 3<br>Lesionados: 107</div>`)[0];
+                popup_6b24c95a254d56201fc0d428e3798cc2.setContent(html_eca37b49a0ff3c698abafc7d4e67ca5f);
+            
+        
+
+        polygon_bec9636d1e9410faab50ff59430ce6f8.bindPopup(popup_6b24c95a254d56201fc0d428e3798cc2)
+        ;
+
+        
+    
+    
+            var marker_ed9cf50fe63a2493441e6de37e187fa3 = L.marker(
+                [-2.1096058107231634, -79.90817413258914],
+                {
+}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+            var div_icon_f64174dafe3937431ef472b921b00e8a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black;\"\u003e\u003cstrong\u003e2\u003c/strong\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_ed9cf50fe63a2493441e6de37e187fa3.setIcon(div_icon_f64174dafe3937431ef472b921b00e8a);
+            
+    
+            var polygon_ff58e6c18e2bc7f91cb0626d31fcec62 = L.polygon(
+                [[-2.145666, -79.934183], [-2.144554, -79.935088], [-2.139872, -79.935527], [-2.137826, -79.934742], [-2.137319, -79.934136], [-2.137264, -79.934069], [-2.137098, -79.933825], [-2.139931, -79.932869], [-2.145446, -79.933907], [-2.145662, -79.934106], [-2.145666, -79.934183]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+        var popup_ddaa8ca9ffbe0aca41c212f596f01f84 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7ed687129c41f5a73306c97fa3b45242 = $(`<div id="html_7ed687129c41f5a73306c97fa3b45242" style="width: 100.0%; height: 100.0%;"><strong>Clúster: 3</strong><br>Fallecidos: 9<br>Lesionados: 209</div>`)[0];
+                popup_ddaa8ca9ffbe0aca41c212f596f01f84.setContent(html_7ed687129c41f5a73306c97fa3b45242);
+            
+        
+
+        polygon_ff58e6c18e2bc7f91cb0626d31fcec62.bindPopup(popup_ddaa8ca9ffbe0aca41c212f596f01f84)
+        ;
+
+        
+    
+    
+            var marker_203f99b2952fcf5728683a470a209be6 = L.marker(
+                [-2.1412109892463738, -79.93425604598718],
+                {
+}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+            var div_icon_aae38639cf1f0808ae2743822ae71c69 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black;\"\u003e\u003cstrong\u003e3\u003c/strong\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_203f99b2952fcf5728683a470a209be6.setIcon(div_icon_aae38639cf1f0808ae2743822ae71c69);
+            
+    
+            var polygon_f60bd2a8e6eb3054e7a254be2f528a25 = L.polygon(
+                [[-2.202851, -79.933366], [-2.201505, -79.934481], [-2.200255, -79.934885], [-2.197103, -79.934639], [-2.196034, -79.934229], [-2.195601, -79.932435], [-2.196585, -79.931951], [-2.197871, -79.931491], [-2.202851, -79.933366]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+        var popup_2984d04250c7eea767fa195b75835744 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d13c3711d8f333fd1b6a25909af40f1c = $(`<div id="html_d13c3711d8f333fd1b6a25909af40f1c" style="width: 100.0%; height: 100.0%;"><strong>Clúster: 4</strong><br>Fallecidos: 3<br>Lesionados: 150</div>`)[0];
+                popup_2984d04250c7eea767fa195b75835744.setContent(html_d13c3711d8f333fd1b6a25909af40f1c);
+            
+        
+
+        polygon_f60bd2a8e6eb3054e7a254be2f528a25.bindPopup(popup_2984d04250c7eea767fa195b75835744)
+        ;
+
+        
+    
+    
+            var marker_6c068dec5d71eb55d4eda9174302431b = L.marker(
+                [-2.1988023902288845, -79.93335152284602],
+                {
+}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+            var div_icon_f4fe8e7cab236a5d92c97f200f4ed539 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black;\"\u003e\u003cstrong\u003e4\u003c/strong\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_6c068dec5d71eb55d4eda9174302431b.setIcon(div_icon_f4fe8e7cab236a5d92c97f200f4ed539);
+            
+    
+            var polygon_2e8d8fb06d0d431fc4cdbaf28a672b46 = L.polygon(
+                [[-2.133062, -79.947907], [-2.132972, -79.948032], [-2.130992, -79.949901], [-2.119447, -79.949989], [-2.113566, -79.947972], [-2.113535, -79.947885], [-2.113634, -79.947611], [-2.119225, -79.946825], [-2.132853, -79.947766], [-2.133062, -79.947907]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+        var popup_cf01a5bb83f561be9341b596cc3e98ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a3c1d5e491bae003a500f9aac993ccd = $(`<div id="html_6a3c1d5e491bae003a500f9aac993ccd" style="width: 100.0%; height: 100.0%;"><strong>Clúster: 5</strong><br>Fallecidos: 34<br>Lesionados: 451</div>`)[0];
+                popup_cf01a5bb83f561be9341b596cc3e98ea.setContent(html_6a3c1d5e491bae003a500f9aac993ccd);
+            
+        
+
+        polygon_2e8d8fb06d0d431fc4cdbaf28a672b46.bindPopup(popup_cf01a5bb83f561be9341b596cc3e98ea)
+        ;
+
+        
+    
+    
+            var marker_aad62849e0048ed03c8a8f347d6dc181 = L.marker(
+                [-2.1234945704359873, -79.94847854534251],
+                {
+}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+            var div_icon_32231af506a402d27eaa7dd7e351f44f = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black;\"\u003e\u003cstrong\u003e5\u003c/strong\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_aad62849e0048ed03c8a8f347d6dc181.setIcon(div_icon_32231af506a402d27eaa7dd7e351f44f);
+            
+    
+            var polygon_6078214f64436d91be2e1c0fdd26e903 = L.polygon(
+                [[-2.203364, -79.917312], [-2.201377, -79.917747], [-2.200887, -79.917683], [-2.199242, -79.915435], [-2.199576, -79.915251], [-2.201031, -79.915061], [-2.201963, -79.914995], [-2.202744, -79.915246], [-2.203364, -79.917312]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+        var popup_74473ce1c4e7c79a39a46a5eee590a78 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_546bc48eb8e6fec5bec2fefbc79e97e1 = $(`<div id="html_546bc48eb8e6fec5bec2fefbc79e97e1" style="width: 100.0%; height: 100.0%;"><strong>Clúster: 6</strong><br>Fallecidos: 3<br>Lesionados: 105</div>`)[0];
+                popup_74473ce1c4e7c79a39a46a5eee590a78.setContent(html_546bc48eb8e6fec5bec2fefbc79e97e1);
+            
+        
+
+        polygon_6078214f64436d91be2e1c0fdd26e903.bindPopup(popup_74473ce1c4e7c79a39a46a5eee590a78)
+        ;
+
+        
+    
+    
+            var marker_56ac94b7775af0a54dca79c530a5a98c = L.marker(
+                [-2.201464650199472, -79.91628592582082],
+                {
+}
+            ).addTo(map_556f2e3fdd2863c8ced279fbc6f07500);
+        
+    
+            var div_icon_99c828c22c75141b27cee8210a24e51b = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12px; color: black;\"\u003e\u003cstrong\u003e6\u003c/strong\u003e\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_56ac94b7775af0a54dca79c530a5a98c.setIcon(div_icon_99c828c22c75141b27cee8210a24e51b);
+            
+</script>
+</html>
